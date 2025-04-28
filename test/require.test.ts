@@ -29,7 +29,7 @@ const matchSimple = (
     match: RegExpExecArray | null,
     singleQuotation: boolean,
     filePath: string,
-    propertyName?: string
+    propertyName?: string,
 ) => {
     assert.isArray(match);
     const quotation = singleQuotation ? "'" : '"';
@@ -66,19 +66,19 @@ const tests = (singleQuotation: boolean, objectName?: string) => {
             regexRequire(`      require(${path})${objNamePath}    `),
             singleQuotation,
             basicFilePath,
-            objectName
+            objectName,
         );
         matchSimple(
             regexRequire(`      require(${path})${objNamePath}    comment`),
             singleQuotation,
             basicFilePath,
-            objectName
+            objectName,
         );
         matchSimple(
             regexRequire(`      require(${path})${objNamePath}    comment   `),
             singleQuotation,
             basicFilePath,
-            objectName
+            objectName,
         );
     });
     it(`paths (${quotName} quotation mark)`, () => {
@@ -87,7 +87,7 @@ const tests = (singleQuotation: boolean, objectName?: string) => {
                 regexRequire(`require(${quot}${pathName}${quot})${objNamePath}`),
                 singleQuotation,
                 pathName,
-                objectName
+                objectName,
             );
         });
     });

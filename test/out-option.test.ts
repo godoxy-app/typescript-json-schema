@@ -6,9 +6,9 @@ describe("out option", () => {
         () =>
             new Promise((resolve, reject) => {
                 require("fs").rm("./dist/test/doesnotexist", { recursive: true, force: true }, (err: Error) =>
-                    err ? reject(err) : resolve(null)
+                    err ? reject(err) : resolve(null),
                 );
-            })
+            }),
     );
     it("should create parent directory when necessary", async () => {
         try {
