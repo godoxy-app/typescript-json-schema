@@ -1,11 +1,11 @@
-import * as glob from "glob";
-import { stringify } from "safe-stable-stringify";
-import * as path from "path";
 import { createHash } from "crypto";
-import * as ts from "typescript";
+import * as glob from "glob";
 import { JSONSchema7, JSONSchema7TypeName } from "json-schema";
+import * as path from "path";
 import { pathEqual } from "path-equal";
-export { Program, CompilerOptions, Symbol } from "typescript";
+import { stringify } from "safe-stable-stringify";
+import * as ts from "typescript";
+export { CompilerOptions, Program, Symbol } from "typescript";
 
 const vm = require("vm");
 
@@ -1174,12 +1174,10 @@ export class JsonSchemaGenerator {
                     }
                     const indexSymbol: ts.Symbol = (<any>indexSignature.parameters[0]).symbol;
                     const indexType = this.tc.getTypeOfSymbolAtLocation(indexSymbol, node);
-                    const isIndexedObject =
+                    let isIndexedObject =
                         indexType.flags === ts.TypeFlags.String || indexType.flags === ts.TypeFlags.Number;
                     if (indexType.flags !== ts.TypeFlags.Number && !isIndexedObject) {
-                        throw new Error(
-                            "Not supported: IndexSignatureDeclaration with index symbol other than a number or a string",
-                        );
+                        isIndexedObject = true;
                     }
 
                     const typ = this.tc.getTypeAtLocation(indexSignature.type!);
