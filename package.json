@@ -7,7 +7,7 @@
   "bin": {
     "typescript-json-schema": "./bin/typescript-json-schema"
   },
-  "author": "Yousef El-Dardiry and Dominik Moritz",
+  "author": "yusing (original: Yousef El-Dardiry and Dominik Moritz)",
   "contributors": [
     {
       "name": "Yousef El-Dardiry",
@@ -30,7 +30,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:YousefED/typescript-json-schema.git"
+    "url": "git@github.com:godoxy-app/typescript-json-schema.git"
   },
   "license": "BSD-3-Clause",
   "keywords": [
